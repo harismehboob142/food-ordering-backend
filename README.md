@@ -1,3 +1,5 @@
+note: env file has been exposed intentionally here
+
 # Food Ordering System - Setup Instructions
 
 This document provides detailed instructions for setting up and running the Food Ordering System application.
