@@ -1,0 +1,376 @@
+{
+  "name": "food-ordering-system-api",
+  "version": "1.0.0",
+  "description": "Food Ordering System API Collection",
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/auth/login",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"nickfury\",\n    \"password\": \"password123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/users/me",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get All Users (Admin)",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/users",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create User (Admin)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/users",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"password123\",\n    \"role\": \"member\",\n    \"country\": \"India\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update User (Admin)",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/api/users/{{userId}}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"updateduser\",\n    \"role\": \"manager\",\n    \"country\": \"America\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User (Admin)",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/users/{{userId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Restaurants",
+      "item": [
+        {
+          "name": "Get All Restaurants",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/restaurants",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get Restaurant by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/restaurants/{{restaurantId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Restaurant (Admin)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/restaurants",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"New Restaurant\",\n    \"address\": \"123 Main St\",\n    \"country\": \"India\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Restaurant (Admin)",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/api/restaurants/{{restaurantId}}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Restaurant\",\n    \"address\": \"456 New St\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Restaurant (Admin)",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/restaurants/{{restaurantId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Food Items",
+      "item": [
+        {
+          "name": "Get All Food Items",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/fooditems",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get Food Item by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/fooditems/{{foodItemId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Food Item (All Roles)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/fooditems",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"New Food Item\",\n    \"description\": \"Delicious food item\",\n    \"price\": 9.99,\n    \"restaurant\": \"{{restaurantId}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Food Item (All Roles)",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/api/fooditems/{{foodItemId}}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Food Item\",\n    \"description\": \"Updated description\",\n    \"price\": 12.99\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Food Item (All Roles)",
+          "request": {
+            "method": "DELETE",
+            "url": "http://localhost:5000/api/fooditems/{{foodItemId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/orders",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/orders/{{orderId}}",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create Order (Admin, Manager)",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:5000/api/orders",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"items\": [\n        {\n            \"foodItem\": \"{{foodItemId}}\",\n            \"quantity\": 2\n        }\n    ],\n    \"paymentMethod\": \"credit_card\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Cancel Order (Admin, Manager)",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/api/orders/{{orderId}}/cancel",
+            "header": [
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Update Payment Method (Admin)",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:5000/api/orders/{{orderId}}/payment",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-auth-token",
+                "value": "{{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"paymentMethod\": \"paypal\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
