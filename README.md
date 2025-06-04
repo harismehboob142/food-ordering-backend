@@ -15,6 +15,7 @@ This document provides detailed instructions for setting up and running the Food
    If you don't have MongoDB installed, you can download it from [MongoDB's official website](https://www.mongodb.com/try/download/community).
 
    Alternatively, you can use MongoDB Atlas, a cloud-based MongoDB service:
+
    - Create an account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
    - Create a new cluster
    - Set up database access (create a user with password)
@@ -39,6 +40,7 @@ This document provides detailed instructions for setting up and running the Food
    ```
 
    If you're using MongoDB Atlas, your connection string will look like:
+
    ```
    MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/food-ordering-system
    ```
@@ -54,10 +56,11 @@ This document provides detailed instructions for setting up and running the Food
    The system comes with a seed script to populate the database with initial data:
 
    ```
-   node src/utils/seed.js
+   npm run seed or run node src/utils/seed.js or
    ```
 
    This will create:
+
    - Sample users with different roles
    - Restaurants in India and America
    - Food items for each restaurant
@@ -110,12 +113,14 @@ Once both the backend and frontend are running, you can access the application a
 The seed script creates the following user accounts for testing:
 
 1. **Admin User**
+
    - Username: nickfury
    - Password: password123
    - Role: admin
    - Access: Full access to all features and data from all countries
 
 2. **Manager (India)**
+
    - Username: captainmarvel
    - Password: password123
    - Role: manager
@@ -123,6 +128,7 @@ The seed script creates the following user accounts for testing:
    - Access: Can view India restaurants/menu, create food items, place/cancel orders
 
 3. **Manager (America)**
+
    - Username: captainamerica
    - Password: password123
    - Role: manager
@@ -130,6 +136,7 @@ The seed script creates the following user accounts for testing:
    - Access: Can view America restaurants/menu, create food items, place/cancel orders
 
 4. **Team Member (India)**
+
    - Username: thanos
    - Password: password123
    - Role: member
@@ -158,6 +165,7 @@ You can import this file into Postman to explore and test all available API endp
 ### Backend Issues
 
 1. **MongoDB Connection Error**
+
    - Verify that MongoDB is running
    - Check your connection string in the `.env` file
    - Ensure network access is configured correctly if using MongoDB Atlas
@@ -168,6 +176,7 @@ You can import this file into Postman to explore and test all available API endp
 ### Frontend Issues
 
 1. **API Connection Error**
+
    - Ensure the backend server is running
    - Verify the NEXT_PUBLIC_API_URL in `.env.local` is correct
    - Check browser console for specific error messages
